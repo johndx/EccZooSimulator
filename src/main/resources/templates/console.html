@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="refresh" content="5">
+</head>
+<body>
+
+<script type="text/javascript">
+    function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             alert(this.responseText);
+         }
+    };
+    xhttp.open("POST", "http://localhost:8080/api/zoo/animals/feed", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send("");
+}
+</script>
+
+
+<h1>'Zoo' Application Console</h1>
+
+<!-- Code in a button to invoke the feed API call -->
+<button type="submit" onclick="UserAction()"  style="background-color:powderblue">Feed Animals</button>
+
+<h1>Local Time</h1>
+<p th:text="'Start Time [ ' + ${StartTime} + ']'" />
+<p th:text="'Current Time [ ' + ${CurrentTime} + ']'" />
+
+<h1>Simulated Elapsed Time</h1>
+<p th:text="'Elapsed Time [ ' + ${SimElapsedTime} + ']'" />
+<p th:text="'Ticks [ ' + ${Ticks} + ']'" />
+
+
+<h1>Current Zoo Data</h1>
+<p th:text="'Zoo : ' + ${Zoo} " style="white-space: pre" />
+
+
+
+
+</body>
+</html>
